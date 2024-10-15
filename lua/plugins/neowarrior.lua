@@ -32,6 +32,23 @@ return {
 				float = {
 					width = 55,
 				},
+				colors = {
+					neowarrior = { group = "NeoWarrior", fg = "#3eeafa", bg = "black" },
+					neowarrior_inverted = { group = "NeoWarriorInverted", fg = "black", bg = "#3cc8d7" },
+					default = { group = "", fg = nil, bg = nil },
+					dim = { group = "NeoWarriorTextDim", fg = "#A6ADC8", bg = nil },
+					danger = { group = "NeoWarriorTextDanger", fg = "#e06c75", bg = nil },
+					warning = { group = "NeoWarriorTextWarning", fg = "#ccaa00", bg = nil },
+					success = { group = "NeoWarriorTextSuccess", fg = "#00cc00", bg = nil },
+					info = { group = "NeoWarriorTextInfo", fg = "#00aaff", bg = nil },
+					danger_bg = { group = "NeoWarriorTextDangerBg", fg = "#ffffff", bg = "#e06c75" },
+					info_bg = { group = "NeoWarriorTextInfoBg", fg = "#9399B2", bg = "#00aaff" },
+					project = { group = "NeoWarriorGroup", fg = "#00aaff", bg = nil },
+					annotation = { group = "NeoWarriorAnnotation", fg = "#00aaff", bg = nil },
+					tag = { group = "NeoWarriorTag", fg = "#ffffff", bg = "#A6ADC8" },
+					current_date = { group = "NeoWarriorCurrentDate", fg = "#9399B2", bg = "#00aaff" },
+					marked_date = { group = "NeoWarriorMarkedDate", fg = "#ffffff", bg = "#00aa66" },
+				},
 			})
 			vim.keymap.set("n", "<leader>nl", function()
 				nw.open_left()
