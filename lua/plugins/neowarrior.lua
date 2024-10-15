@@ -29,6 +29,9 @@ return {
 						expanded = true,
 					},
 				},
+				float = {
+					width = 55,
+				},
 			})
 			vim.keymap.set("n", "<leader>nl", function()
 				nw.open_left()
@@ -44,6 +47,9 @@ return {
 			end, { desc = "Open nwarrior above current buffer" })
 			vim.keymap.set("n", "<leader>nr", function()
 				nw.open_right()
+				-- Manually set the width after opening on the right
+				local win_id = vim.api.nvim_get_current_win()
+				vim.api.nvim_win_set_width(win_id, 50) -- Set width to 30 columns
 			end, { desc = "Open nwarrior on the right side" })
 			vim.keymap.set("n", "<leader>nt", function()
 				nw.focus()
