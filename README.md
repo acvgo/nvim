@@ -41,3 +41,5 @@ For telescope:
 live grep (ripgrep) - https://github.com/BurntSushi/ripgrep
 find files (fd - I'm not using this currently) - https://github.com/sharkdp/fd
 
+### To Add Python Neovim module
+`sudo apt install python3-neovim`
