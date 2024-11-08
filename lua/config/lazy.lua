@@ -77,5 +77,6 @@ lspconfig.vtsls.setup({
 
 -- Volar (renamed server id in lspconfig)
 lspconfig.volar.setup({})
+--]]
 
 require("nvim-highlight-colors").setup({})
