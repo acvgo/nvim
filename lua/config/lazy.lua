@@ -49,6 +49,8 @@ require("lazy").setup({
 -- Volar must be setup a/s tsserver for vue support
 -- This config runs in hybrid mode
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+--[[
+--
 local mason_registry = require("mason-registry")
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
 	.. "/node_modules/@vue/language-server"
@@ -69,5 +71,6 @@ lspconfig.ts_ls.setup({
 
 -- No need to set `hybridMode` to `true` as it's the default value
 lspconfig.volar.setup({})
+--]]
 
 require("nvim-highlight-colors").setup({})
