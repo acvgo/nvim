@@ -7,8 +7,8 @@ return {
 			ensure_installed = {
 				"bash-language-server",
 				"css-lsp",
-				"eslint_d",
-				"gopls",
+				--"eslint_d",
+				--"gopls",
 				"html-lsp",
 				"json-lsp",
 				"lemminx",
@@ -73,11 +73,11 @@ return {
 			indent = { enable = true },
 			ensure_installed = {
 				"bash",
-				"c",
+				--"c",
 				"diff",
-				"go",
+				--"go",
 				"html",
-				"javascript",
+				--"javascript",
 				"jsdoc",
 				"json",
 				"jsonc",
@@ -86,17 +86,17 @@ return {
 				"luap",
 				"markdown",
 				"markdown_inline",
-				"python",
+				--"python",
 				"query",
 				"regex",
 				"toml",
-				"tsx",
-				"typescript",
+				--"tsx",
+				--"typescript",
 				"vim",
 				"vimdoc",
 				"xml",
 				"yaml",
-				"vue", -- Ensure vue is installed
+				--"vue", -- Ensure vue is installed
 			},
 			--[[
 			incremental_selection = {
