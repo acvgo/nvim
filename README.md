@@ -28,10 +28,11 @@ https://www.lazyvim.org/configuration/general#Keymaps
 
 
 ### Requires
-Neovim >= 0.10.0 (current config testing w/ 0.10.0)
+Neovim >= 0.10.2 (current config testing w/ 0.10.2)
 Git >= 2.19.0
 For treesitter, you'll need a c compiler but if you are building  
 neovim from source, you'll already have this.
+fzf - Fuzzy Finder is the replacement for telescope.
 
 
 ### Installing supplementals/optionals
@@ -40,6 +41,9 @@ Lazygit - https://github.com/jesseduffield/lazygit
 For telescope:
 live grep (ripgrep) - https://github.com/BurntSushi/ripgrep
 find files (fd - I'm not using this currently) - https://github.com/sharkdp/fd
+
+fzf - https://github.com/junegunn/fzf
+`brew install fzf`
 
 ### To Add Python Neovim module
 `sudo apt install python3-neovim`
