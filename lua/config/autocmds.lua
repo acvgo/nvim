@@ -6,3 +6,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd("Neotree show")
 	end,
 })
+
+vim.api.nvim_create_user_command("FormatAll", function()
+	local files = vim.fn.systemlist("git ls-files")
+	for _, file in ipairs(files) do
+		vim.cmd("edit " .. file)
+		vim.lsp.buf.format()
+		vim.cmd("write")
+	end
+end, {})
