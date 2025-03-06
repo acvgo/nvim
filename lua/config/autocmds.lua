@@ -15,3 +15,8 @@ vim.api.nvim_create_user_command("FormatAll", function()
 		vim.cmd("write")
 	end
 end, {})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.xml" },
+	command = "set filetype=xml",
+})
