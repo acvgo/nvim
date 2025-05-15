@@ -12,3 +12,6 @@ vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 vim.opt.number = true -- Set line numbering to absolute
 vim.opt.relativenumber = false -- Force relative numbering off
 --vim.o.loaded_perl_provider = 0
+
+-- ChatGPT key load
+vim.env.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
