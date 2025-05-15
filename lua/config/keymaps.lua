@@ -15,8 +15,10 @@ vim.keymap.set("n", "<C-c>", ":set hlsearch!<CR>")
 vim.keymap.set("n", "]g", function()
 	vim.diagnostic.jump({ count = 1 })
 end, { silent = true, desc = "Next diagnostic" })
-
 -- Jump to previous diagnostic
 vim.keymap.set("n", "[g", function()
 	vim.diagnostic.jump({ count = -1 })
 end, { silent = true, desc = "Prev diagnostic" })
+
+-- ChatGPT
+vim.keymap.set("n", "<leader>cg", "<cmd>ChatGPT<CR>", { desc = "ChatGPT" })
