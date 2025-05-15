@@ -15,3 +15,6 @@ vim.keymap.set("n", "<C-c>", ":set hlsearch!<CR>")
 vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
 -- Go to previous error
 vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+
+-- ChatGPT
+vim.keymap.set("n", "<leader>cg", "<cmd>ChatGPT<CR>", { desc = "ChatGPT" })
