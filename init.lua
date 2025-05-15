@@ -17,3 +17,6 @@ vim.opt.relativenumber = false -- Force relative numbering off
 --vim.o.loaded_perl_provider = 0
 
 -- No longer need "gpanders/editorconfig.nvim"
+
+-- ChatGPT key load
+vim.env.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
