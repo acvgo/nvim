@@ -68,3 +68,11 @@ Build and Install
 this will (1) move into the cloned code, (2) change your branch to 'stable', (3) initiate a 'release' build, (4) move into the build directory, (5) package the build as a DEB file, and (6) then use Debian's package tool (dpkg) to install neovim on the system. This has the benefit of registering the application w/ dpkg and makes future version upgrades easily replaced without extra action.  
 Finally, remove the repo  
 `cd ~ && rm -rf neovim`  
+
+
+## To Run Copilot  
+Enter Insert Mode to get Copilot  
+`:Copilot auth`
+Once authenticated, you can check with  
+`:Copilot status`
+Other commands and documentation can be found at lua/docs/copilot.txt 
