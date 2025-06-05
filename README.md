@@ -28,10 +28,11 @@ https://www.lazyvim.org/configuration/general#Keymaps
 
 
 ### Requires
-Neovim >= 0.9 (current config testing w/ 0.10.4)  
+Neovim >= 0.11 (current config testing w/ 0.11.1)  
 Git >= 2.19.0  
 For treesitter, you'll need a c compiler but if you are building neovim from source, you'll already have this.  
-(fzf - Fuzzy Finder is the replacement for telescope so this really should be considered required)  
+(fzf - Fuzzy Finder is the replacement for telescope so this really should be considered required. However, if you are  
+using Copilot, it requires telescope still.)  
 
 
 ### Recommended
