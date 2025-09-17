@@ -49,9 +49,15 @@ require("lazy").setup({
 -- Volar must be setup a/s tsserver for vue support
 -- This config runs in hybrid mode
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-local mason_registry = require("mason-registry")
-local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
-	.. "/node_modules/@vue/language-server"
+
+-- Mason v2 compatible way to point Volar at @vue/language-server
+local mason_root = vim.fn.expand("$MASON")
+if mason_root == "" then
+	mason_root = (vim.fn.stdpath("data") .. "/mason") -- fallback if $MASON isn't set
+end
+
+local vue_language_server_path = mason_root .. "/packages/vue-language-server/node_modules/@vue/language-server"
+
 local lspconfig = require("lspconfig")
 
 lspconfig.ts_ls.setup({
