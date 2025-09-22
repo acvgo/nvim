@@ -26,11 +26,16 @@ return {
 				-- Format error = { "first hl group", "second hl group", "last option hexcode" },
 				error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
 				warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
-				delete = { "#F77F00" },
+				delete = { "DiffDelete", "#F77F00" },
 				info = { "DiagnosticInfo", "#2563EB" },
 				hint = { "DiagnosticHint", "#10B981" },
 				default = { "Identifier", "#7C3AED" },
 				test = { "Identifier", "#FF00FF" },
+			},
+			highlight = {
+				keyword = "bg", -- highlight just the keyword
+				after = "fg", -- highlight text after keyword
+				pattern = [[.*<(KEYWORDS)\s*:]], -- regex to match
 			},
 		})
 	end,

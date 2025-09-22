@@ -49,31 +49,33 @@ require("lazy").setup({
 -- Volar must be setup a/s tsserver for vue support
 -- This config runs in hybrid mode
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+--
+-- keep your lazy setup as-is, including the typescript extra
+-- remove the whole ts_ls.setup block
 
--- Mason v2 compatible way to point Volar at @vue/language-server
-local mason_root = vim.fn.expand("$MASON")
-if mason_root == "" then
-	mason_root = (vim.fn.stdpath("data") .. "/mason") -- fallback if $MASON isn't set
-end
-
-local vue_language_server_path = mason_root .. "/packages/vue-language-server/node_modules/@vue/language-server"
-
+-- vtsls + vue_ls (Volar) with no hardcoded path
 local lspconfig = require("lspconfig")
 
-lspconfig.ts_ls.setup({
-	init_options = {
-		plugins = {
-			{
-				name = "@vue/typescript-plugin",
-				location = vue_language_server_path,
-				languages = { "vue" },
+lspconfig.vtsls.setup({
+	-- Vue 2: wire the plugin, but omit `location` so Node resolves it from the workspace
+	settings = {
+		vtsls = {
+			tsserver = {
+				globalPlugins = {
+					{
+						name = "@vue/typescript-plugin",
+						languages = { "vue" },
+						configNamespace = "typescript",
+						enableForWorkspaceTypeScriptVersions = true,
+					},
+				},
 			},
 		},
 	},
 	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
 
--- No need to set `hybridMode` to `true` as it's the default value
+-- Volar (renamed server id in lspconfig)
 lspconfig.volar.setup({})
 
 require("nvim-highlight-colors").setup({})

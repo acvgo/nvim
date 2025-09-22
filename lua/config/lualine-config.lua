@@ -1,20 +1,15 @@
 -- Lualine Configuration
 -- This configuration is mainly implemented from their github repository.
-local get_active_lsp = function()
-	local msg = "No Active Lsp"
-	local buf_ft = vim.api.nvim_get_option_value("filetype", {})
+local function get_active_lsp()
 	local clients = vim.lsp.get_clients({ bufnr = 0 })
-	if next(clients) == nil then
-		return msg
+	if not clients or vim.tbl_isempty(clients) then
+		return "No Active LSP"
 	end
-
-	for _, client in ipairs(clients) do
-		local filetypes = client.config.filetypes
-		if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-			return client.name
-		end
+	local names = {}
+	for _, c in ipairs(clients) do
+		table.insert(names, c.name)
 	end
-	return msg
+	return table.concat(names, ",")
 end
 
 require("lualine").setup({

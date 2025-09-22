@@ -18,7 +18,7 @@ return {
 		},
 	},
 	{
-		"nvim-lspconfig",
+		"neovim/nvim-lspconfig",
 		opts = {
 			setup = {
 				volar = function()
@@ -78,8 +78,7 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
-		-- opts will be merged with the parent spec
-		opts = { use_diagnostic_signs = true },
+		opts = {},
 	},
 	{
 		"nvim-lualine/lualine.nvim",

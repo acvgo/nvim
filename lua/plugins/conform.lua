@@ -2,6 +2,8 @@ return {
 	{
 		"stevearc/conform.nvim",
 		opts = {
+			ormat_on_save = { timeout_ms = 500, lsp_fallback = true },
+			notify_on_error = true,
 			formatters = {
 				xmlformatter = {
 					command = "xmlformatter",
