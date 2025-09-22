@@ -12,6 +12,7 @@ return {
 				"lemminx",
 				"python-lsp-server",
 				"typescript-language-server",
+				"vtsls",
 				"vue-language-server",
 				"xmlformatter",
 			},
@@ -21,13 +22,19 @@ return {
 		"neovim/nvim-lspconfig",
 		opts = {
 			setup = {
+				-- keep Volar for .vue; LazyVim's TS extra will wire vtsls for TS/JS
 				volar = function()
 					require("lazyvim.util").lsp.on_attach(function(client, _)
 						if client.name == "volar" then
+							-- If you use Prettier/Conform for Vue formatting, consider setting this to false.
 							client.server_capabilities.documentFormattingProvider = true
 						end
 					end)
 				end,
+				-- optional: enable eslint LSP if you added "eslint-lsp"
+				-- eslint = function()
+				--   return true
+				-- end,
 			},
 		},
 	},
