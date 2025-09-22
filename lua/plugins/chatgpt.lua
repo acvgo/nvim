@@ -22,7 +22,7 @@ return {
 				--         return "gpt-3.5-turbo"
 				--     end
 				-- end,
-				model = "gpt-4.1",
+				-- model = "gpt-5.1",
 				frequency_penalty = 0,
 				presence_penalty = 0,
 				max_tokens = 1000,
