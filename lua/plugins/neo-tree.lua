@@ -2,9 +2,9 @@ return {
 	"nvim-neo-tree/neo-tree.nvim",
 	opts = {
 		filesystem = {
-			follow_current_file = { enabled = true }, -- auto-jump to the file you’re editing
-			group_empty_dirs = true, -- collapses long chains of empty dirs
-			use_libuv_file_watcher = true, -- instant updates on file changes
+			-- follow_current_file = { enabled = true }, -- auto-jump to the file you’re editing
+			-- group_empty_dirs = true, -- collapses long chains of empty dirs
+			-- use_libuv_file_watcher = true, -- instant updates on file changes
 			filtered_items = {
 				visible = true, -- Show filtered items as greyed out
 				show_hidden_count = true, -- show the number of items not visible
