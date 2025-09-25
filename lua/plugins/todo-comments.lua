@@ -32,11 +32,11 @@ return {
 				default = { "Identifier", "#7C3AED" },
 				test = { "Identifier", "#FF00FF" },
 			},
-			highlight = {
-				keyword = "bg", -- highlight just the keyword
-				after = "fg", -- highlight text after keyword
-				pattern = [[.*<(KEYWORDS)\s*:]], -- regex to match
-			},
+			-- highlight = {
+			-- 	keyword = "bg", -- highlight just the keyword
+			-- 	after = "fg", -- highlight text after keyword
+			-- 	pattern = [[.*<(KEYWORDS)\s*:]], -- regex to match
+			-- },
 		})
 	end,
 }
