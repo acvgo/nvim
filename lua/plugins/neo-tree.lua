@@ -11,6 +11,7 @@ return {
 				show_hidden_count = true, -- show the number of items not visible
 				hide_dotfiles = false, -- don't hide dot files
 				hide_gitignored = false, -- don't hide gitignored files
+				hide_ignored = false, -- don't hide ignored files
 				hide_by_name = { -- Greys out these
 					".git",
 					-- '.DS_Store',
