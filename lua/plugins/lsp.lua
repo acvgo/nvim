@@ -1,7 +1,9 @@
 return {
 	{
 		"mason-org/mason.nvim",
+		event = "VeryLazy",
 		opts = {
+			PATH = "append",
 			ensure_installed = {
 				"bash-language-server",
 				"css-lsp",
@@ -11,7 +13,7 @@ return {
 				"json-lsp",
 				"lemminx",
 				"python-lsp-server",
-				"typescript-language-server",
+				-- don't install ts_ls (typescript-language-server); we'll use vtsls
 				"vtsls",
 				"vue-language-server",
 				"xmlformatter",
@@ -20,26 +22,40 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {
+			servers = {
+				-- Start vtsls for TS/JS
+				vtsls = {
+					cmd = { vim.fn.stdpath("data") .. "/mason/bin/vtsls", "--stdio" },
+					filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
+				},
+				-- Use the new name directly (volar is deprecated alias)
+				vue_ls = {
+					filetypes = { "vue" },
+				},
+			},
 			setup = {
-				-- keep Volar for .vue; LazyVim's TS extra will wire vtsls for TS/JS
+				-- Safety valve: if anything tries to set up the old alias 'volar', skip it
 				volar = function()
+					return true
+				end,
+
+				-- Optional: formatting toggle for Vue
+				vue_ls = function(_, _)
 					require("lazyvim.util").lsp.on_attach(function(client, _)
-						if client.name == "volar" then
-							-- If you use Prettier/Conform for Vue formatting, consider setting this to false.
+						if client.name == "vue_ls" then
 							client.server_capabilities.documentFormattingProvider = true
 						end
 					end)
 				end,
-				-- optional: enable eslint LSP if you added "eslint-lsp"
-				-- eslint = function()
-				--   return true
-				-- end,
 			},
 		},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile" },
+		build = ":TSUpdate",
 		opts = {
 			highlight = { enable = true },
 			indent = { enable = true },
@@ -89,6 +105,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
+		event = "VeryLazy",
 		opts = function(_, opts)
 			local trouble = require("trouble")
 			if not trouble.statusline then

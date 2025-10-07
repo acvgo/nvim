@@ -14,14 +14,14 @@ require("lazy").setup({
 		-- import any extras modules here
 		{ import = "lazyvim.plugins.extras.lang.typescript" },
 		{ import = "lazyvim.plugins.extras.lang.json" },
-		{ import = "lazyvim.plugins.extras.ui.mini-animate" },
+		-- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 		-- import/override with your plugins
 		{ import = "plugins" },
 	},
 	defaults = {
 		-- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
 		-- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
-		lazy = false,
+		lazy = true,
 		-- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
 		-- have outdated releases, which may break your Neovim install.
 		version = false, -- always use the latest git commit
@@ -30,13 +30,14 @@ require("lazy").setup({
 	install = { colorscheme = { "catppuccin" } }, -- "tokyonight", "habamax",
 	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
+		cache = { enabled = true },
 		rtp = {
 			-- disable some rtp plugins
 			disabled_plugins = {
 				"gzip",
-				-- "matchit",
-				-- "matchparen",
-				-- "netrwPlugin",
+				"matchit",
+				"matchparen",
+				"netrwPlugin",
 				"tarPlugin",
 				"tohtml",
 				"tutor",
@@ -45,37 +46,5 @@ require("lazy").setup({
 		},
 	},
 })
-
--- Volar must be setup a/s tsserver for vue support
--- This config runs in hybrid mode
--- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
---
--- keep your lazy setup as-is, including the typescript extra
--- remove the whole ts_ls.setup block
-
--- vtsls + vue_ls (Volar) with no hardcoded path
-local lspconfig = require("lspconfig")
-
-lspconfig.vtsls.setup({
-	-- Vue 2: wire the plugin, but omit `location` so Node resolves it from the workspace
-	settings = {
-		vtsls = {
-			tsserver = {
-				globalPlugins = {
-					{
-						name = "@vue/typescript-plugin",
-						languages = { "vue" },
-						configNamespace = "typescript",
-						enableForWorkspaceTypeScriptVersions = true,
-					},
-				},
-			},
-		},
-	},
-	filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-})
-
--- Volar (renamed server id in lspconfig)
-lspconfig.volar.setup({})
 
 require("nvim-highlight-colors").setup({})

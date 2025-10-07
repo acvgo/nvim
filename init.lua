@@ -1,7 +1,10 @@
+pcall(vim.loader.enable)
+
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 require("config.lualine-config")
 require("config.catppuccin")
+require("config.vtsls")
 require("plugins.todo-comments")
 
 vim.opt.termguicolors = true
