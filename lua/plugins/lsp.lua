@@ -43,11 +43,23 @@ return {
 
 				-- Optional: formatting toggle for Vue
 				vue_ls = function(_, _)
-					require("snacks.util").lsp.on(function(client, _)
-						if client.name == "vue_ls" then
-							client.server_capabilities.documentFormattingProvider = true
-						end
-					end)
+					-- make sure we only register once
+					if _G._vue_ls_attach_registered then
+						return
+					end
+					_G._vue_ls_attach_registered = true
+
+					local group = vim.api.nvim_create_augroup("user_vue_ls_attach", { clear = true })
+
+					vim.api.nvim_create_autocmd("LspAttach", {
+						group = group,
+						callback = function(ev)
+							local client = vim.lsp.get_client_by_id(ev.data.client_id)
+							if client and client.name == "vue_ls" then
+								client.server_capabilities.documentFormattingProvider = true
+							end
+						end,
+					})
 				end,
 			},
 		},
