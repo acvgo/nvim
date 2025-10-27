@@ -43,7 +43,7 @@ return {
 
 				-- Optional: formatting toggle for Vue
 				vue_ls = function(_, _)
-					require("lazyvim.util").lsp.on_attach(function(client, _)
+					require("snacks.util").lsp.on(function(client, _)
 						if client.name == "vue_ls" then
 							client.server_capabilities.documentFormattingProvider = true
 						end
