@@ -34,6 +34,9 @@ For treesitter, you'll need a c compiler but if you are building neovim from sou
 (fzf - Fuzzy Finder is the replacement for telescope so this really should be considered required. However, if you are  
 using Copilot, it requires telescope still.)  
 
+#### treesitter now largely outside of neovim, use brew to install treesitter 
+`brew install tree-sitter tree-sitter-cli`
+
 
 ### Recommended
 [homebrew](https://brew.sh/) - This is good for easy install of the supplemental below  
