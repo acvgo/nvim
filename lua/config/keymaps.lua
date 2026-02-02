@@ -24,6 +24,6 @@ end, { silent = true, desc = "Prev diagnostic" })
 -- Open Claude Code in right split
 vim.keymap.set("n", "<leader>cc", function()
 	vim.cmd("vsplit")
-	vim.cmd("terminal claude-code")
+	vim.cmd("terminal claude")
 	vim.cmd("startinsert")
 end, { desc = "Open Claude Code in right split" })
