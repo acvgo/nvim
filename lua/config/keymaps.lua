@@ -22,7 +22,7 @@ vim.keymap.set("n", "[g", function()
 end, { silent = true, desc = "Prev diagnostic" })
 
 -- Open Claude Code in right split
-vim.keymap.set("n", "<leader>cc", function()
+vim.keymap.set("n", "<leader>ac", function()
 	vim.cmd("vsplit")
 	vim.cmd("terminal claude")
 	vim.cmd("startinsert")
