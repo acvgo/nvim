@@ -26,3 +26,7 @@ if is_wsl then
 		cache_enabled = 0,
 	}
 end
+
+-- Only use prettier when the project actually ships a prettier config;
+-- otherwise fall back to the LSP formatter (jsonls, vtsls, etc.)
+vim.g.lazyvim_prettier_needs_config = true
